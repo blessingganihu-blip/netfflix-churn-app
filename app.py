@@ -1,13 +1,13 @@
 import streamlit as st
-import joblib
+import pickle
 import pandas as pd
 
 # load model and columns
-model = joblib.load('churn_model.pkl')
-model_columns = joblib.load('model_columns.pkl')
+with open('churn_model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
-st.title("Netflix Customer Churn Predictor")
-st.write("Fill in the customer details below to predict if they will churn.")
+with open('model_columns.pkl', 'rb') as f:
+    model_columns = pickle.load(f)
 
 # input fields
 age = st.number_input("Age", min_value=18, max_value=70, value=30)
