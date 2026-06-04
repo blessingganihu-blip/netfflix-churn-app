@@ -21,6 +21,9 @@ proactive retention measures.
 
 ✅ Random Forest was selected as the final model due to its superior performance.
 
+##Run the App
+https://netfflix-churn-app-suuvgfh6ptybntu5jebw3t.streamlit.app/
+
 ## Key Findings
 - `last_login_days` was the strongest predictor of churn
 - Customers inactive for 30-60 days had a 75% churn rate
