@@ -14,6 +14,14 @@ st.set_page_config(
 # --------------------------------------------------
 # CUSTOM CSS
 # --------------------------------------------------
+.section-card {
+    background-color: #111827;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #374151;
+    margin-bottom: 25px;
+}
+
 st.markdown("""
 <style>
 
