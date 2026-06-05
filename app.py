@@ -6,36 +6,8 @@ import pandas as pd
 with open('churn_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-with open('model_columns.pkl', 'rb') as f:
-    model_columns = pickle.load(f)
 
-# custom CSS
-st.markdown("""
-    <style>
-    .main { background-color: #0e1117; }
-    .block-container { padding-top: 2rem; }
-    .stButton>button {
-        background-color: #E50914;
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        border-radius: 8px;
-        padding: 12px 40px;
-        border: none;
-        width: 100%;
-    }
-    .stButton>button:hover { background-color: #b20710; }
-    h1 { color: #E50914; }
-    h3 { color: #ffffff; border-bottom: 2px solid #E50914; padding-bottom: 8px; }
-    </style>
-""", unsafe_allow_html=True)
 
-# page config
-st.set_page_config(
-    page_title="Netflix Churn Predictor",
-    page_icon="🎬",
-    layout="centered"
-)
 
 
 # input fields
