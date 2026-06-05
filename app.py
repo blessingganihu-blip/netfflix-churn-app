@@ -184,9 +184,7 @@ with col2:
 
 col3, col4 = st.columns(2)
 
-with col3:
 
-    
 with col3:
 
     st.markdown("### 🌍 Location & Device")
