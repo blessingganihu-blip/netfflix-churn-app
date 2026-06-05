@@ -163,32 +163,28 @@ with col1:
         )
 with col2:
 
-    st.markdown(
-        "<div class='section-card'><div class='section-title'>📺 Customer Activity</div>",
-        unsafe_allow_html=True
-    )
+    with st.container(border=True):
 
-    watch_hours = st.number_input(
-        "Total Watch Hours",
-        min_value=0.0,
-        value=50.0
-    )
+        st.markdown("### 📺 Customer Activity")
 
-    last_login_days = st.number_input(
-        "Days Since Last Login",
-        min_value=0,
-        value=10
-    )
+        watch_hours = st.number_input(
+            "Total Watch Hours",
+            min_value=0.0,
+            value=50.0
+        )
 
-    avg_watch_time_per_day = st.number_input(
-        "Avg Watch Hours Per Day",
-        min_value=0.0,
-        max_value=24.0,
-        value=1.5
-    )
+        last_login_days = st.number_input(
+            "Days Since Last Login",
+            min_value=0,
+            value=10
+        )
 
-    st.markdown("</div>", unsafe_allow_html=True)
-
+        avg_watch_time_per_day = st.number_input(
+            "Avg Watch Hours Per Day",
+            min_value=0.0,
+            max_value=24.0,
+            value=1.5
+        )
 # ==================================================
 # BOTTOM ROW
 # ==================================================
@@ -197,59 +193,53 @@ col3, col4 = st.columns(2)
 
 with col3:
 
-    st.markdown(
-        "<div class='section-card'><div class='section-title'>🌍 Location & Device</div>",
-        unsafe_allow_html=True
-    )
+    with st.container(border=True):
 
-    region = st.selectbox(
-        "Region",
-        [
-            "Africa",
-            "Asia",
-            "Europe",
-            "North America",
-            "Oceania",
-            "South America"
-        ]
-    )
+        st.markdown("### 🌍 Location & Device")
 
-    device = st.selectbox(
-        "Device",
-        ["Laptop", "Mobile", "TV", "Tablet"]
-    )
+        region = st.selectbox(
+            "Region",
+            [
+                "Africa",
+                "Asia",
+                "Europe",
+                "North America",
+                "Oceania",
+                "South America"
+            ]
+        )
 
-    st.markdown("</div>", unsafe_allow_html=True)
-
+        device = st.selectbox(
+            "Device",
+            ["Laptop", "Mobile", "TV", "Tablet"]
+        )
 with col4:
 
-    st.markdown(
-        "<div class='section-card'><div class='section-title'>💳 Subscription Details</div>",
-        unsafe_allow_html=True
-    )
+   with col4:
+    with st.container(border=True):
 
-    subscription_type = st.selectbox(
-        "Subscription Type",
-        ["Basic", "Standard", "Premium"]
-    )
+        st.markdown("### 💳 Subscription Details")
 
-    payment_method = st.selectbox(
-        "Payment Method",
-        [
-            "Credit Card",
-            "Crypto",
-            "Debit Card",
-            "Gift Card",
-            "PayPal"
-        ]
-    )
+        subscription_type = st.selectbox(
+            "Subscription Type",
+            ["Basic", "Standard", "Premium"]
+        )
 
-    monthly_fee = st.selectbox(
-        "Monthly Fee ($)",
-        [8.99, 13.99, 17.99]
-    )
+        payment_method = st.selectbox(
+            "Payment Method",
+            [
+                "Credit Card",
+                "Crypto",
+                "Debit Card",
+                "Gift Card",
+                "PayPal"
+            ]
+        )
 
-    st.markdown("</div>", unsafe_allow_html=True)
+        monthly_fee = st.selectbox(
+            "Monthly Fee ($)",
+            [8.99, 13.99, 17.99]
+        )
 
 # ==================================================
 # PREDICTION
