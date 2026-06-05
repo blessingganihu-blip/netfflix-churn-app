@@ -203,11 +203,12 @@ col3, col4 = st.columns(2)
 
 with col3:
 
-  st.markdown("""
-<div class="section-title">
-    🌍 Location & Device
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-title">
+        🌍 Location & Device
+    </div>
+    """, unsafe_allow_html=True)
+
     region = st.selectbox(
         "Region",
         [
@@ -232,8 +233,6 @@ with col3:
         value=1
     )
 with col4:
-
-   with col4:
     
 
    st.markdown("""
