@@ -137,13 +137,6 @@ with col1:
             value=30
         )
 
-        number_of_profiles = st.number_input(
-            "Number of Profiles",
-            min_value=1,
-            max_value=10,
-            value=1
-        )
-
         gender = st.selectbox(
             "Gender",
             ["Male", "Female", "Other"]
@@ -195,24 +188,33 @@ with col3:
 
     
 
-        st.markdown("### 🌍 Location & Device")
+      with col3:
 
-        region = st.selectbox(
-            "Region",
-            [
-                "Africa",
-                "Asia",
-                "Europe",
-                "North America",
-                "Oceania",
-                "South America"
-            ]
-        )
+    st.markdown("### 🌍 Location & Device")
 
-        device = st.selectbox(
-            "Device",
-            ["Laptop", "Mobile", "TV", "Tablet"]
-        )
+    region = st.selectbox(
+        "Region",
+        [
+            "Africa",
+            "Asia",
+            "Europe",
+            "North America",
+            "Oceania",
+            "South America"
+        ]
+    )
+
+    device = st.selectbox(
+        "Device",
+        ["Laptop", "Mobile", "TV", "Tablet"]
+    )
+
+    number_of_profiles = st.number_input(
+        "Number of Profiles",
+        min_value=1,
+        max_value=10,
+        value=1
+    )
 with col4:
 
    with col4:
