@@ -2,25 +2,19 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-# --------------------------------------------------
+# ==================================================
 # PAGE CONFIG
-# --------------------------------------------------
+# ==================================================
+
 st.set_page_config(
     page_title="Netflix Customer Churn Predictor",
     page_icon="🎬",
     layout="wide"
 )
 
-# --------------------------------------------------
+# ==================================================
 # CUSTOM CSS
-# --------------------------------------------------
-.section-card {
-    background-color: #111827;
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid #374151;
-    margin-bottom: 25px;
-}
+# ==================================================
 
 st.markdown("""
 <style>
@@ -30,7 +24,7 @@ st.markdown("""
 }
 
 .main .block-container {
-    max-width: 1100px;
+    max-width: 1200px;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
@@ -38,7 +32,7 @@ st.markdown("""
 .hero-title {
     text-align: center;
     color: white;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 0;
 }
@@ -56,15 +50,16 @@ st.markdown("""
     border-radius: 15px;
     border: 1px solid #374151;
     margin-bottom: 25px;
+    min-height: 380px;
 }
 
 .section-title {
     color: white;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 20px;
-    border-bottom: 2px solid #E50914;
     padding-bottom: 10px;
+    border-bottom: 2px solid #E50914;
 }
 
 .stButton > button {
@@ -90,49 +85,91 @@ st.markdown("""
     text-align: center;
 }
 
+[data-testid="stMetric"] {
+    background-color: #1F2937;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
-# --------------------------------------------------
+# ==================================================
 # LOAD MODEL
-# --------------------------------------------------
+# ==================================================
+
 with open("churn_model.pkl", "rb") as f:
     model = pickle.load(f)
 
 with open("model_columns.pkl", "rb") as f:
     model_columns = pickle.load(f)
 
-# --------------------------------------------------
+# ==================================================
 # HEADER
-# --------------------------------------------------
+# ==================================================
+
 st.markdown(
     """
-    <h1 class='hero-title'>🎬 Netflix Customer Churn Predictor</h1>
-    <p class='hero-subtitle'>
-        Predict whether a customer is likely to churn based on subscription,
-        engagement and viewing behaviour.
+    <h1 class="hero-title">🎬 Netflix Customer Churn Predictor</h1>
+    <p class="hero-subtitle">
+        Fill in the customer details below to predict whether they are likely to churn.
     </p>
     """,
     unsafe_allow_html=True
 )
 
-# --------------------------------------------------
-# CUSTOMER ACTIVITY
-# --------------------------------------------------
-st.markdown("<div class='section-card'>", unsafe_allow_html=True)
-st.markdown(
-    "<div class='section-title'>📚 Customer Activity</div>",
-    unsafe_allow_html=True
-)
+# ==================================================
+# TOP ROW
+# ==================================================
 
-left, right = st.columns(2)
+col1, col2 = st.columns(2)
 
-with left:
+with col1:
+
+    st.markdown(
+        "<div class='section-card'><div class='section-title'>👤 Customer Profile</div>",
+        unsafe_allow_html=True
+    )
+
     age = st.number_input(
         "Age",
         min_value=18,
         max_value=70,
         value=30
+    )
+
+    number_of_profiles = st.number_input(
+        "Number of Profiles",
+        min_value=1,
+        max_value=10,
+        value=1
+    )
+
+    gender = st.selectbox(
+        "Gender",
+        ["Male", "Female", "Other"]
+    )
+
+    favorite_genre = st.selectbox(
+        "Favourite Genre",
+        [
+            "Action",
+            "Comedy",
+            "Documentary",
+            "Drama",
+            "Horror",
+            "Romance",
+            "Sci-Fi"
+        ]
+    )
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col2:
+
+    st.markdown(
+        "<div class='section-card'><div class='section-title'>📺 Customer Activity</div>",
+        unsafe_allow_html=True
     )
 
     watch_hours = st.number_input(
@@ -147,54 +184,26 @@ with left:
         value=10
     )
 
-with right:
-    monthly_fee = st.selectbox(
-        "Monthly Fee ($)",
-        [8.99, 13.99, 17.99]
-    )
-
-    number_of_profiles = st.number_input(
-        "Number of Profiles",
-        min_value=1,
-        max_value=10,
-        value=1
-    )
-
     avg_watch_time_per_day = st.number_input(
-        "Avg Watch Time Per Day (hours)",
+        "Avg Watch Hours Per Day",
         min_value=0.0,
         max_value=24.0,
         value=1.5
     )
 
-st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
-# --------------------------------------------------
-# SUBSCRIPTION DETAILS
-# --------------------------------------------------
-st.markdown("<div class='section-card'>", unsafe_allow_html=True)
-st.markdown(
-    "<div class='section-title'>💳 Subscription Details</div>",
-    unsafe_allow_html=True
-)
+# ==================================================
+# BOTTOM ROW
+# ==================================================
 
-left, right = st.columns(2)
+col3, col4 = st.columns(2)
 
-with left:
-    subscription_type = st.selectbox(
-        "Subscription Type",
-        ["Basic", "Standard", "Premium"]
-    )
+with col3:
 
-    payment_method = st.selectbox(
-        "Payment Method",
-        ["Credit Card", "Crypto", "Debit Card", "Gift Card", "PayPal"]
-    )
-
-with right:
-    device = st.selectbox(
-        "Device",
-        ["Laptop", "Mobile", "TV", "Tablet"]
+    st.markdown(
+        "<div class='section-card'><div class='section-title'>🌍 Location & Device</div>",
+        unsafe_allow_html=True
     )
 
     region = st.selectbox(
@@ -209,44 +218,47 @@ with right:
         ]
     )
 
-st.markdown("</div>", unsafe_allow_html=True)
-
-# --------------------------------------------------
-# PREFERENCES
-# --------------------------------------------------
-st.markdown("<div class='section-card'>", unsafe_allow_html=True)
-st.markdown(
-    "<div class='section-title'>🎭 Preferences</div>",
-    unsafe_allow_html=True
-)
-
-left, right = st.columns(2)
-
-with left:
-    gender = st.selectbox(
-        "Gender",
-        ["Male", "Female", "Other"]
+    device = st.selectbox(
+        "Device",
+        ["Laptop", "Mobile", "TV", "Tablet"]
     )
 
-with right:
-    favorite_genre = st.selectbox(
-        "Favorite Genre",
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col4:
+
+    st.markdown(
+        "<div class='section-card'><div class='section-title'>💳 Subscription Details</div>",
+        unsafe_allow_html=True
+    )
+
+    subscription_type = st.selectbox(
+        "Subscription Type",
+        ["Basic", "Standard", "Premium"]
+    )
+
+    payment_method = st.selectbox(
+        "Payment Method",
         [
-            "Action",
-            "Comedy",
-            "Documentary",
-            "Drama",
-            "Horror",
-            "Romance",
-            "Sci-Fi"
+            "Credit Card",
+            "Crypto",
+            "Debit Card",
+            "Gift Card",
+            "PayPal"
         ]
     )
 
-st.markdown("</div>", unsafe_allow_html=True)
+    monthly_fee = st.selectbox(
+        "Monthly Fee ($)",
+        [8.99, 13.99, 17.99]
+    )
 
-# --------------------------------------------------
-# PREDICT BUTTON
-# --------------------------------------------------
+    st.markdown("</div>", unsafe_allow_html=True)
+
+# ==================================================
+# PREDICTION
+# ==================================================
+
 if st.button("🔮 Predict Churn"):
 
     input_data = pd.DataFrame([{
@@ -278,6 +290,7 @@ if st.button("🔮 Predict Churn"):
     st.markdown("<div class='result-box'>", unsafe_allow_html=True)
 
     if prediction == 1:
+
         st.markdown(
             "<h2 style='color:#EF4444;'>⚠️ High Churn Risk</h2>",
             unsafe_allow_html=True
@@ -291,8 +304,9 @@ if st.button("🔮 Predict Churn"):
         st.progress(float(probability))
 
     else:
+
         st.markdown(
-            "<h2 style='color:#22C55E;'>✅ Likely to Stay</h2>",
+            "<h2 style='color:#22C55E;'>✅ Likely To Stay</h2>",
             unsafe_allow_html=True
         )
 
