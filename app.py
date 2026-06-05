@@ -6,7 +6,12 @@ import pandas as pd
 with open('churn_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-
+# page config
+st.set_page_config(
+    page_title="Netflix Churn Predictor",
+    page_icon="🎬",
+    layout="centered"
+)
 
 
 
