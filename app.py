@@ -9,7 +9,7 @@ import pandas as pd
 st.set_page_config(
     page_title="Netflix Customer Churn Predictor",
     page_icon="🎬",
-    layout="wide"
+    layout="centered"
 )
 
 # ==================================================
