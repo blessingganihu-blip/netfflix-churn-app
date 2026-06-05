@@ -111,13 +111,21 @@ with open("model_columns.pkl", "rb") as f:
 st.markdown(
     """
     <h1 class="hero-title">🎬 Netflix Customer Churn Predictor</h1>
+
+    <div style="
+        width: 200px;
+        height: 4px;
+        background-color: #E50914;
+        margin: 15px auto 25px auto;
+        border-radius: 5px;">
+    </div>
+
     <p class="hero-subtitle">
         Fill in the customer details below to predict whether they are likely to churn.
     </p>
     """,
     unsafe_allow_html=True
 )
-
 # ==================================================
 # TOP ROW
 # ==================================================
