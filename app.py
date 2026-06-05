@@ -244,7 +244,12 @@ with col4:
 # PREDICTION
 # ==================================================
 
-if st.button("🔮 Predict Churn"):
+left, center, right = st.columns([1, 2, 1])
+
+with center:
+    predict = st.button("🔮 Predict Churn")
+    
+if predict:
 
     input_data = pd.DataFrame([{
         "age": age,
