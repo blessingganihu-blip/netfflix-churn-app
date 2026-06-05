@@ -126,45 +126,41 @@ col1, col2 = st.columns(2)
 
 with col1:
 
-    st.markdown(
-        "<div class='section-card'><div class='section-title'>👤 Customer Profile</div>",
-        unsafe_allow_html=True
-    )
+    with st.container(border=True):
 
-    age = st.number_input(
-        "Age",
-        min_value=18,
-        max_value=70,
-        value=30
-    )
+        st.markdown("### 👤 Customer Profile")
 
-    number_of_profiles = st.number_input(
-        "Number of Profiles",
-        min_value=1,
-        max_value=10,
-        value=1
-    )
+        age = st.number_input(
+            "Age",
+            min_value=18,
+            max_value=70,
+            value=30
+        )
 
-    gender = st.selectbox(
-        "Gender",
-        ["Male", "Female", "Other"]
-    )
+        number_of_profiles = st.number_input(
+            "Number of Profiles",
+            min_value=1,
+            max_value=10,
+            value=1
+        )
 
-    favorite_genre = st.selectbox(
-        "Favourite Genre",
-        [
-            "Action",
-            "Comedy",
-            "Documentary",
-            "Drama",
-            "Horror",
-            "Romance",
-            "Sci-Fi"
-        ]
-    )
+        gender = st.selectbox(
+            "Gender",
+            ["Male", "Female", "Other"]
+        )
 
-    st.markdown("</div>", unsafe_allow_html=True)
-
+        favorite_genre = st.selectbox(
+            "Favourite Genre",
+            [
+                "Action",
+                "Comedy",
+                "Documentary",
+                "Drama",
+                "Horror",
+                "Romance",
+                "Sci-Fi"
+            ]
+        )
 with col2:
 
     st.markdown(
