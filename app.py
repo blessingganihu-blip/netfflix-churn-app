@@ -6,14 +6,11 @@ import pandas as pd
 with open('churn_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-# page config
-st.set_page_config(
-    page_title="Netflix Churn Predictor",
-    page_icon="🎬",
-    layout="centered"
-)
+with open('model_columns.pkl', 'rb') as f:
+    model_columns = pickle.load(f)
 
-
+st.title("Netflix Customer Churn Predictor")
+st.write("Fill in the customer details below to predict if they will churn.")
 
 # input fields
 age = st.number_input("Age", min_value=18, max_value=70, value=30)
