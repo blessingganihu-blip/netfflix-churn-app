@@ -136,8 +136,11 @@ with col1:
 
 
 
-        st.markdown("### 👤 Customer Profile")
-
+        st.markdown("""
+<div class="section-title">
+    👤 Customer Profile
+</div>
+""", unsafe_allow_html=True)
         age = st.number_input(
             "Age",
             min_value=18,
@@ -166,7 +169,11 @@ with col2:
 
     
 
-        st.markdown("### 📺 Customer Activity")
+    st.markdown("""
+<div class="section-title">
+    📺 Customer Activity
+</div>
+""", unsafe_allow_html=True)
 
         watch_hours = st.number_input(
             "Total Watch Hours",
@@ -195,8 +202,11 @@ col3, col4 = st.columns(2)
 
 with col3:
 
-    st.markdown("### 🌍 Location & Device")
-
+  st.markdown("""
+<div class="section-title">
+    🌍 Location & Device
+</div>
+""", unsafe_allow_html=True)
     region = st.selectbox(
         "Region",
         [
@@ -225,7 +235,11 @@ with col4:
    with col4:
     
 
-        st.markdown("### 💳 Subscription Details")
+   st.markdown("""
+<div class="section-title">
+    💳 Subscription Details
+</div>
+""", unsafe_allow_html=True)
 
         subscription_type = st.selectbox(
             "Subscription Type",
