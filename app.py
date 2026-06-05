@@ -168,31 +168,32 @@ with col1:
 with col2:
 
     
+with col2:
 
     st.markdown("""
-<div class="section-title">
-    📺 Customer Activity
-</div>
-""", unsafe_allow_html=True)
+    <div class="section-title">
+        📺 Customer Activity
+    </div>
+    """, unsafe_allow_html=True)
 
-        watch_hours = st.number_input(
-            "Total Watch Hours",
-            min_value=0.0,
-            value=50.0
-        )
+    watch_hours = st.number_input(
+        "Total Watch Hours",
+        min_value=0.0,
+        value=50.0
+    )
 
-        last_login_days = st.number_input(
-            "Days Since Last Login",
-            min_value=0,
-            value=10
-        )
+    last_login_days = st.number_input(
+        "Days Since Last Login",
+        min_value=0,
+        value=10
+    )
 
-        avg_watch_time_per_day = st.number_input(
-            "Avg Watch Hours Per Day",
-            min_value=0.0,
-            max_value=24.0,
-            value=1.5
-        )
+    avg_watch_time_per_day = st.number_input(
+        "Avg Watch Hours Per Day",
+        min_value=0.0,
+        max_value=24.0,
+        value=1.5
+    )
 # ==================================================
 # BOTTOM ROW
 # ==================================================
