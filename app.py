@@ -165,7 +165,7 @@ with col1:
                 "Sci-Fi"
             ]
         )
-with col2:
+
 
     
 with col2:
