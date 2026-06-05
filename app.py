@@ -241,7 +241,7 @@ with col4:
 </div>
 """, unsafe_allow_html=True)
 
-        subscription_type = st.selectbox(
+     subscription_type = st.selectbox(
             "Subscription Type",
             ["Basic", "Standard", "Premium"]
         )
