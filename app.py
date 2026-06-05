@@ -126,7 +126,7 @@ col1, col2 = st.columns(2)
 
 with col1:
 
-    with st.container(border=True):
+
 
         st.markdown("### 👤 Customer Profile")
 
@@ -163,7 +163,7 @@ with col1:
         )
 with col2:
 
-    with st.container(border=True):
+    
 
         st.markdown("### 📺 Customer Activity")
 
@@ -193,7 +193,7 @@ col3, col4 = st.columns(2)
 
 with col3:
 
-    with st.container(border=True):
+    
 
         st.markdown("### 🌍 Location & Device")
 
@@ -216,7 +216,7 @@ with col3:
 with col4:
 
    with col4:
-    with st.container(border=True):
+    
 
         st.markdown("### 💳 Subscription Details")
 
