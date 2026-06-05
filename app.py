@@ -233,34 +233,33 @@ with col3:
         value=1
     )
 with col4:
-    
 
-   st.markdown("""
-<div class="section-title">
-    💳 Subscription Details
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-title">
+        💳 Subscription Details
+    </div>
+    """, unsafe_allow_html=True)
 
-     subscription_type = st.selectbox(
-            "Subscription Type",
-            ["Basic", "Standard", "Premium"]
-        )
+    subscription_type = st.selectbox(
+        "Subscription Type",
+        ["Basic", "Standard", "Premium"]
+    )
 
-        payment_method = st.selectbox(
-            "Payment Method",
-            [
-                "Credit Card",
-                "Crypto",
-                "Debit Card",
-                "Gift Card",
-                "PayPal"
-            ]
-        )
+    payment_method = st.selectbox(
+        "Payment Method",
+        [
+            "Credit Card",
+            "Crypto",
+            "Debit Card",
+            "Gift Card",
+            "PayPal"
+        ]
+    )
 
-        monthly_fee = st.selectbox(
-            "Monthly Fee ($)",
-            [8.99, 13.99, 17.99]
-        )
+    monthly_fee = st.selectbox(
+        "Monthly Fee ($)",
+        [8.99, 13.99, 17.99]
+    )
 
 # ==================================================
 # PREDICTION
